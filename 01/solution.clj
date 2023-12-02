@@ -43,3 +43,5 @@ part1
        (clojure.string/split-lines)
        (map #(Integer/parseInt (apply str (first-last (get-digits %)))))
        (reduce +)))
+
+part2
