@@ -17,10 +17,6 @@
   [array reference]
   (map #(has-symbols? (subs array (get % 0) (get % 1))) reference))
 
-(def test-array
-  [".............................................................................................................................................." "....................15....904...........850.................329...................13....................................871....816....697....." "............53.497........................%....906...610.......*.............735#..&...*......558...68...............68..*......&....*........"]
-)
-
 (defn numbers-from-string-array
   [arrays]
   (let [pos-string (map #(vector (dec (get % 0)) (+ (count (get % 1)) (get % 0) 1) (get % 1)) (re-pos #"\d+" (get arrays 1)))
@@ -28,8 +24,6 @@
         mask (apply map #(or %1 %2 %3) masks)
         pos-string-mask (map #(vector %1 %2) mask pos-string)]
     (keep #(if (first %) (Integer/parseInt (last (last %)))) pos-string-mask)))
-
-(numbers-from-string-array ["............" ".467..114..." "....*......."])
 
 (def long-string
   (apply str (take 140 (repeat "."))))
